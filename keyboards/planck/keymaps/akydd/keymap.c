@@ -9,10 +9,10 @@ enum planck_layers {
 //  ADJUST
 };
 
-enum planck_keycodes {
-  BACKLIT,
-  EXT_PLV
-};
+//enum planck_keycodes {
+//  BACKLIT,
+//  EXT_PLV
+//};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -283,4 +283,35 @@ bool music_mask_user(uint16_t keycode) {
         default:
             return TAPPING_TERM;
     }
+};
+
+const rgblight_segment_t PROGMEM my_sym_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_GREEN}
+);
+
+const rgblight_segment_t PROGMEM my_num_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_BLUE}
+);
+
+const rgblight_segment_t PROGMEM my_nav_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_YELLOW}
+);
+
+// Now define the array of layers. Later layers take precedence
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_sym_layer,
+    my_num_layer,
+    my_nav_layer
+);
+
+void keyboard_post_init_user(void) {
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+};
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, SYM));
+    rgblight_set_layer_state(1, layer_state_cmp(state, NUM));
+    rgblight_set_layer_state(2, layer_state_cmp(state, NAV));
+    return state;
 }
