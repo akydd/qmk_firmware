@@ -6,7 +6,6 @@ enum planck_layers {
   SYM,
   NUM,
   NAV,
-  MED,
 //  ADJUST
 };
 
@@ -32,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q,         KC_W,         KC_F,         KC_P,            KC_B,   _______,         _______, KC_J,    KC_L,     KC_U,         KC_Y,         KC_QUOTE,
     LCTL_T(KC_A), LALT_T(KC_R), LGUI_T(KC_S), KC_T,            KC_G,   _______,         _______, KC_M,    KC_N,     RGUI_T(KC_E), RALT_T(KC_I), RCTL_T(KC_O),
     LSFT_T(KC_Z), KC_X,         KC_C,         KC_D,            KC_V,   _______,         _______, KC_K,    KC_H,     KC_COMMA,     KC_DOT,       RSFT_T(KC_SLSH),
-    _______,      _______,      _______,      LT(NUM, KC_ESC), KC_SPC, LT(MED, KC_TAB), KC_ENT,  KC_BSPC, OSL(SYM), _______,      _______,      _______
+    _______,      _______,      _______,      LT(NUM, KC_ESC), KC_SPC, LT(NAV, KC_TAB), KC_ENT,  KC_BSPC, OSL(SYM), _______,      _______,      _______
 ),
 
 /* Symbols - green
@@ -72,17 +71,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [NAV] = LAYOUT_planck_grid(
-    _______,  KC_WH_U,    KC_WH_D,    _______,           _______,       _______,    _______,    _______,    _______,       _______,   _______,         _______,
-    KC_MS_L,  KC_MS_U,    KC_MS_D,    KC_MS_R,           _______,       _______,    _______,    _______,    KC_LEFT,       KC_UP,     KC_DOWN,         KC_RIGHT,
-    _______,  _______,    _______,    _______,           _______,       _______,    _______,    _______,    KC_ACL0,       KC_ACL1,   KC_ACL2,         _______,
-    _______,  _______,    _______,    TO(COLEMAK_DH),    KC_MS_BTN1,    KC_MS_BTN2, _______,    _______,    KC_ESC,        _______,   _______,         _______
-),
-
-[MED] = LAYOUT_planck_grid(
-    _______,  _______,    _______,    _______,           _______,    _______,    _______,    _______,    KC_MPLY,    KC_MUTE,    KC_SLEP,     KC_PWR,
-    _______,  _______,    _______,    _______,           _______,    _______,    _______,    _______,    KC_MPRV,    KC_VOLD,    KC_VOLU,     KC_MNXT,
-    _______,  _______,    _______,    _______,           _______,    _______,    _______,    _______,    _______,    _______,    _______,     _______,
-    _______,  _______,    _______,    TO(COLEMAK_DH),    _______,    _______,    _______,    _______,    _______,    _______,    _______,     _______
+    _______,  KC_WH_U,    KC_WH_D,    _______,           _______,       _______,    _______,    _______,    KC_MPLY,       KC_VOLD,   KC_VOLU,       KC_SLEP,
+    KC_MS_L,  KC_MS_U,    KC_MS_D,    KC_MS_R,           _______,       _______,    _______,    _______,    KC_LEFT,       KC_DOWN,   KC_UP,         KC_RIGHT,
+    _______,  _______,    _______,    _______,           _______,       _______,    _______,    _______,    LGUI(KC_LEFT), _______,   _______,       LGUI(KC_RIGHT),
+    _______,  _______,    _______,    TO(COLEMAK_DH),    KC_MS_BTN1,    KC_MS_BTN2, _______,    _______,    KC_ESC,        _______,   _______,       _______
 ),
 
 /* Adjust
