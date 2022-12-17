@@ -9,7 +9,6 @@ enum planck_layers {
 //  ADJUST
 };
 
-// test commit
 //enum planck_keycodes {
 //  BACKLIT,
 //  EXT_PLV
