@@ -16,10 +16,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 	[SYM] = LAYOUT_split_3x5_2(
-        KC_EXLM,  KC_AT,      KC_PLUS,    KC_LBRC,   _______,   _______,   KC_RBRC,   KC_PIPE,   KC_PERC,     KC_SCLN,
-        KC_GRV,   KC_COLN,    KC_LCBR,    KC_LPRN,   KC_0,      KC_1,      KC_RPRN,   KC_RCBR,   KC_PEQL,     KC_AMPR,
-        KC_DLR,   KC_CIRC,    KC_UNDS,    KC_ASTR,   _______,   _______,   KC_MINS,   KC_BSLS,   KC_TILDE,    KC_HASH,
-                                          KC_ESC,    KC_ENT,    _______,   TO(NAV)
+        _______,    KC_AT,      KC_PLUS,    _______,    _______,    _______,    KC_TILDE, KC_PIPE,   KC_PERC,   _______,
+        _______,    KC_DLR,     KC_EXLM,    KC_GRV,     _______,    _______,    KC_MINS,  KC_SCLN,   KC_BSLS,   KC_AMPR,
+        _______,    KC_CIRC,    _______,    KC_ASTR,    _______,    _______,    _______,  _______,   _______,   KC_HASH,
+                                            KC_ESC,     KC_ENT,     _______,    TO(NAV)
     ),
 
     [NUM] = LAYOUT_split_3x5_2(
@@ -38,7 +38,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 // combos
-const uint16_t PROGMEM test_combo1[] = {LT(NAV, KC_TAB), KC_BSPC, COMBO_END};
+const uint16_t PROGMEM enter[] = {LT(NAV, KC_TAB), KC_BSPC, COMBO_END};
+
+const uint16_t PROGMEM lcbr[] = {LALT_T(KC_R), LCTL_T(KC_S), COMBO_END};
+const uint16_t PROGMEM rcbr[] = {RALT_T(KC_I), RCTL_T(KC_E), COMBO_END};
+
+const uint16_t PROGMEM lparen[] = {LCTL_T(KC_S), LSFT_T(KC_T), COMBO_END};
+const uint16_t PROGMEM rparen[] = {RCTL_T(KC_E), RSFT_T(KC_N), COMBO_END};
+
+const uint16_t PROGMEM colon[] = {LALT_T(KC_R), LSFT_T(KC_T), COMBO_END};
+const uint16_t PROGMEM equal[] = {RALT_T(KC_I), RSFT_T(KC_N), COMBO_END};
+
+const uint16_t PROGMEM lbrc[] = {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM rbrc[] = {KC_U, KC_L, COMBO_END};
+
+const uint16_t PROGMEM unds[] = {LSFT_T(KC_T), RSFT_T(KC_N), COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(test_combo1, KC_ENT),
+    COMBO(enter, KC_ENT),
+    COMBO(lcbr, KC_LCBR),
+    COMBO(rcbr, KC_RCBR),
+    COMBO(lparen, KC_LPRN),
+    COMBO(rparen, KC_RPRN),
+    COMBO(lbrc, KC_LBRC),
+    COMBO(rbrc, KC_RBRC),
+    COMBO(colon, KC_COLN),
+    COMBO(equal, KC_PEQL),
+    COMBO(unds, KC_UNDS),
 };
